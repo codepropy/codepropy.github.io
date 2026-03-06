@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Codepropy Snowfall Program</title>
+
+<style>
+body{
+font-family: Arial, sans-serif;
+background:#0f172a;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+h1{
+color:#38bdf8;
+}
+
+pre{
+background:#020617;
+border:1px solid #38bdf8;
+padding:20px;
+text-align:left;
+width:80%;
+margin:auto;
+overflow:auto;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Snowfall Analysis Python Program</h1>
+<p>This page shows my snowfall analysis Python program.</p>
+
+<pre>
+# initialise variables
+snowfall_total = 0
+measurement_counter = 0
+not_included = 0
+stored_measurements = []
+days = 0
+
+# loop until user enters 0
+while True:
+
+    snowfall = float(input("Enter snowfall (in cm): "))
+
+    # check input is between 0 and 60
+    if snowfall < 0 or snowfall > 60:
+        print("Try again. Your value must be between 0 and 60.")
+        continue
+
+    # stop entering data when 0 is entered
+    if snowfall == 0:
+        break
+
+    # count number of days snowfall lasted
+    days += 1
+
+    # store measurements that are 0.5 or higher
+    if snowfall >= 0.5:
+        stored_measurements.append(snowfall)
+        snowfall_total += snowfall
+        measurement_counter += 1
+    else:
+        # count measurements not included
+        not_included += 1
+
+
+# check if there is enough data for analysis
+if snowfall_total >= 10 and days >= 5 and measurement_counter > 0:
+
+    # calculate average snowfall
+    average = snowfall_total / measurement_counter
+
+    # display results
+    print("The number of days snowfall lasted was:", days)
+    print(not_included, "days were not included in the calculations")
+    print("The stored measurements were as follows:")
+
+    for measurement in stored_measurements:
+        print(measurement)
+
+    print("The average of the stored measurements is:", round(average, 2))
+
+# display message if conditions not met
+else:
+    print("Not enough data for analysis.")
+</pre>
+
+</body>
+</html>
