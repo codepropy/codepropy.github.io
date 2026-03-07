@@ -41,8 +41,8 @@ not_included = 0
 stored_measurements = []
 days = 0
 
-# loop until user enters 0
-while True:
+# loop for a maximum number of entries
+for i in range(100):
 
     snowfall = float(input("Enter snowfall (in cm): "))
 
@@ -75,14 +75,14 @@ if snowfall_total >= 10 and days >= 5 and measurement_counter > 0:
     average = snowfall_total / measurement_counter
 
     # display results
-    print("The number of days snowfall lasted was:", days)
-    print(not_included, "days were not included in the calculations")
+    print("The number of days snowfall lasted was: " + str(days))
+    print(str(not_included) + " days were not included in the calculations")
     print("The stored measurements were as follows:")
 
-    for measurement in stored_measurements:
-        print(measurement)
+    for i in range(len(stored_measurements)):
+        print(stored_measurements[i])
 
-    print("The average of the stored measurements is:", round(average, 2))
+    print("The average of the stored measurements is: " + str(round(average, 2)))
 
 # display message if conditions not met
 else:
