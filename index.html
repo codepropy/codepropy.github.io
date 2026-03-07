@@ -77,7 +77,7 @@ if snowfall_total >= 10 and days >= 5 and measurement_counter > 0:
     # display results
     print("The number of days snowfall lasted was: " + str(days))
     print(str(not_included) + " days were not included in the calculations")
-    print("The stored measurements were as follows:")
+    print("The " + str(measurement_counter) + " stored measurements were as follows:")
 
     for i in range(len(stored_measurements)):
         print(stored_measurements[i])
